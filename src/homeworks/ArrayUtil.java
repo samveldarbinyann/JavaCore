@@ -24,7 +24,7 @@ public class ArrayUtil {
 //        <<<<<<<< 3 >>>>>>>>>
         System.out.println("<<<<<<<< 3 >>>>>>>>>");
 
-        System.out.print(numbers[8]);
+        System.out.print(numbers[numbers.length - 1]);
 
         System.out.println();
         System.out.println();
@@ -116,11 +116,8 @@ public class ArrayUtil {
 //        <<<<<<<< 10 >>>>>>>>>
         System.out.println("<<<<<<<< 10 >>>>>>>>>");
 
-        int result = 0;
-        for (int i = 0; i < numbers.length; i++) {
-            result += numbers[i];
-        }
-        System.out.println(result / numbers.length);
+        int avarage = sum / numbers.length;
+        System.out.println(avarage);
 
     }
 
