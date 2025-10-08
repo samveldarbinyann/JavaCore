@@ -19,5 +19,17 @@ public class DynamicArrayDemo {
         System.out.println(arrayValue2);
 
         dynamicArray.print();
+
+        dynamicArray.deleteByIndex(3);
+        dynamicArray.deleteByIndex(4);
+        dynamicArray.set(2, 20);
+        dynamicArray.print();
+        dynamicArray.set(4, 60);
+        dynamicArray.print();
+        dynamicArray.add(2, 14);
+        dynamicArray.print();
+        dynamicArray.exists(999);
+        dynamicArray.getIndexByValue(20);
+
     }
 }

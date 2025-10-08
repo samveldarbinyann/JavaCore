@@ -37,6 +37,7 @@ public class DynamicArray {
         }
     }
 
+
     //տպել մասիվի ավելացված էլեմենտները
     public void print() {
         for (int i = 0; i < size; i++) {
@@ -44,4 +45,62 @@ public class DynamicArray {
         }
         System.out.println();
     }
+
+    public void deleteByIndex(int index) {
+        if (index < 0 || index > size) {
+            System.out.println("Not found");
+            return;
+        } else {
+            for (int i = index; i < size; i++) {
+                array[i] = array[i + 1];
+            }
+            size--;
+        }
+    }
+
+    public void set(int index, int value) {
+        if (index < 0 || index > size) {
+            System.out.println("Not found");
+            return;
+        } else {
+            array[index] = value;
+        }
+
+    }
+
+    public void add(int index, int value) {
+        if (index < 0 || index > size) {
+            System.out.println("Not found");
+            return;
+        } else {
+            for (int i = size; i > index; i--) {
+                array[i] = array[i - 1];
+            }
+            array[index] = value;
+            size++;
+        }
+    }
+
+    public boolean exists(int value) {
+        for (int i = 0; i < size; i++) {
+            if (array[i] == value) {
+                System.out.println("True");
+                return true;
+            }
+        }
+        System.out.println("False");
+        return false;
+    }
+
+    public int getIndexByValue(int value) {
+        for (int i = 0; i < size; i++) {
+            if (value == array[i]) {
+                System.out.println(array[i]);
+                return i;
+            }
+        }
+        return -1;
+    }
+
+
 }
