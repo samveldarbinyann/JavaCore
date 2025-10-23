@@ -60,7 +60,9 @@ public class LibraryDemo implements Commands {
         String authorName = sc.nextLine();
         System.out.println("Enter price:");
         double price = Double.parseDouble(sc.nextLine());
-        Book book = new Book(price, authorName, bookTitle);
+        System.out.println("Enter quantity:");
+        int quantity = Integer.parseInt(sc.nextLine());
+        Book book = new Book(price, authorName, bookTitle, quantity);
         bookStorage.add(book);
         System.out.println("Book added successfully!");
     }
