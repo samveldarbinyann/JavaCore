@@ -34,12 +34,9 @@ public class LibraryDemo implements Commands {
                     System.out.println("Please enter the book you would like to delete");
                     int id = Integer.parseInt(sc.nextLine());
                     bookStorage.deleteBookById(id);
+                    break;
                 case SEARCH_BY_PRICE_RANGE:
-                    System.out.println("Enter minimum price:");
-                    double minPrice = Double.parseDouble(sc.nextLine());
-                    System.out.println("Enter maximum price:");
-                    double maxPrice = Double.parseDouble(sc.nextLine());
-                    bookStorage.searchByPriceRange(minPrice, maxPrice);
+                    searchByPriceRange();
                     break;
                 default:
                     System.out.println("Invalid command");
@@ -75,6 +72,14 @@ public class LibraryDemo implements Commands {
         System.out.println("Please input 4 for PRINT EXPENSIVE BOOK:");
         System.out.println("Please input 5 for DELETE BOOKS:");
         System.out.println("Please input 6 for SEARCH BY PRICE RANGE:");
+    }
+
+    public static void searchByPriceRange() {
+        System.out.println("Enter minimum price:");
+        double minPrice = Double.parseDouble(sc.nextLine());
+        System.out.println("Enter maximum price:");
+        double maxPrice = Double.parseDouble(sc.nextLine());
+        bookStorage.searchByPriceRange(minPrice, maxPrice);
     }
 }
 

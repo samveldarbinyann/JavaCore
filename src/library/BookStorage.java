@@ -48,16 +48,17 @@ public class BookStorage {
             System.out.println("Invalid id");
             return;
         }
-        for (int i = 0; i < size; i++) {
-            if (id == i) {
-                books[i] = books[i++];
-            }
-            books[--size] = null;
-            System.out.println("Book with id " + id + " has been deleted");
+        for (int i = id; i < size; i++) {
+            books[i] = books[i + 1];
         }
+        books[--size] = null;
+        System.out.println("Book with id " + id + " has been deleted");
     }
 
     public void searchByPriceRange(double minPrice, double maxPrice) {
+        if (minPrice > maxPrice || minPrice < 0 || maxPrice < 0) {
+            System.out.println("Invalid price");
+        }
         for (int i = 0; i < size; i++) {
             if (books[i].getPrice() >= minPrice && books[i].getPrice() <= maxPrice) {
                 System.out.println(books[i]);
