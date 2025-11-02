@@ -56,7 +56,7 @@ public class Book {
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
         return Double.compare(price, book.price) == 0 && Objects.equals(title, book.title) &&
-                Objects.equals(author, book.author) && Objects.equals(quantity, book.quantity);
+                Objects.equals(author, book.author) && quantity == book.quantity;
     }
 
     @Override
