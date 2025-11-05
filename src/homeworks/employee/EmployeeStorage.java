@@ -39,4 +39,12 @@ public class EmployeeStorage {
             }
         }
     }
+
+    public void searchByPosition(String position) {
+        for (int i = 0; i < size; i++) {
+            if (employees[i].getPosition().toString().equals(position)) {
+                System.out.println(employees[i]);
+            }
+        }
+    }
 }

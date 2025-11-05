@@ -8,12 +8,12 @@ public class Employee {
     private String employeeId;
     private double salary;
     private String company;
-    private String position;
+    private PositionLevel position;
 
     Employee() {
     }
 
-    Employee(String name, String surname, String employeeId, double salary, String company, String position) {
+    Employee(String name, String surname, String employeeId, double salary, String company, PositionLevel position) {
         this.name = name;
         this.surname = surname;
         this.employeeId = employeeId;
@@ -62,11 +62,11 @@ public class Employee {
         this.company = company;
     }
 
-    public String getPosition() {
+    public PositionLevel getPosition() {
         return position;
     }
 
-    public void setPosition(String position) {
+    public void setPosition(PositionLevel position) {
         this.position = position;
     }
 
@@ -78,7 +78,7 @@ public class Employee {
                 ", employeeId='" + employeeId + '\'' +
                 ", salary=" + salary +
                 ", company='" + company + '\'' +
-                ", position='" + position + '\'' +
+                ", position=" + position +
                 '}';
     }
 
@@ -86,13 +86,11 @@ public class Employee {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return Double.compare(salary, employee.salary) == 0 && Objects.equals(name, employee.name) && Objects.equals(surname, employee.surname) && Objects.equals(employeeId, employee.employeeId) && Objects.equals(company, employee.company) && Objects.equals(position, employee.position);
+        return Double.compare(salary, employee.salary) == 0 && Objects.equals(name, employee.name) && Objects.equals(surname, employee.surname) && Objects.equals(employeeId, employee.employeeId) && Objects.equals(company, employee.company) && position == employee.position;
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(name, surname, employeeId, salary, company, position);
     }
-
-
 }
