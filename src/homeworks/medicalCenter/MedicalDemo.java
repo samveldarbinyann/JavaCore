@@ -98,7 +98,7 @@ public class MedicalDemo implements Commands {
         String phoneNumber = scanner.nextLine();
         System.out.println("Please input doctor email");
         String email = scanner.nextLine();
-        Doctor doctor = new Doctor(id,  name, surname, phoneNumber, email, profession);
+        Doctor doctor = new Doctor(id, name, surname, phoneNumber, email, profession);
         doctorStorage.addDoc(doctor);
     }
 

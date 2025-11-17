@@ -48,14 +48,7 @@ public class Patient extends Person implements Serializable {
 
     @Override
     public String toString() {
-        return "Patient{" +
-                "doctor='" + doctor + '\'' +
-                ", registrationDate=" + registrationDate +
-                ", id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", phoneNumber=" + phoneNumber +
-                ", surname='" + surname + '\'' +
-                '}';
+        return name + " " + surname + " | ID: " + id + " | Doctor: " + doctor + " | Registration date: " + registrationDate + " | Phone: " + phoneNumber;
     }
 }
 
