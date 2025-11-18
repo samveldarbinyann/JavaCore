@@ -39,12 +39,14 @@ public class MedicalDemo implements Commands {
                     break;
                 case DELETE_DOCTOR:
                     System.out.println("Enter doctor's id");
+                    doctorStorage.printAllDoctors();
                     String doctorId = scanner.nextLine();
                     doctorStorage.deleteDoctorById(doctorId);
                     FileUtil.serializeDoctorData(doctorStorage);
                     break;
                 case CHANGE_DOCTOR:
                     System.out.println("Enter doctor's id");
+                    doctorStorage.printAllDoctors();
                     String changeDoctorId = scanner.nextLine();
                     doctorStorage.changeDoctorById(changeDoctorId);
                     FileUtil.serializeDoctorData(doctorStorage);
@@ -59,6 +61,7 @@ public class MedicalDemo implements Commands {
                     break;
                 case PRINT_PATIENT_BY_DOC:
                     System.out.println("Enter doctor's id");
+                    doctorStorage.printAllDoctors();
                     String searchDoctorId = scanner.nextLine();
                     Doctor doctor2 = doctorStorage.getDoctor(searchDoctorId);
                     if (doctor2 == null) {
@@ -88,16 +91,40 @@ public class MedicalDemo implements Commands {
     public static void addDoctor() {
         System.out.println("Please input doctor name");
         String name = scanner.nextLine();
+        if (name.isEmpty() || name.length() <= 2) {
+            System.out.println("Invalid input");
+            return;
+        }
         System.out.println("Please input doctor surname");
         String surname = scanner.nextLine();
-        System.out.println("Please input doctor id");
+        if (surname.isEmpty() || surname.length() <= 2) {
+            System.out.println("Invalid input");
+            return;
+        }
+        System.out.println("Please input doctor id. Example ---> AX12345678");
         String id = scanner.nextLine();
+        if (id.isEmpty() || id.length() < 10) {
+            System.out.println("Invalid input");
+            return;
+        }
         System.out.println("Please input doctor profession");
         String profession = scanner.nextLine();
-        System.out.println("Please input doctor phone number");
+        if (profession.isEmpty() || profession.length() <= 2) {
+            System.out.println("Invalid input");
+            return;
+        }
+        System.out.println("Please input doctor phone number. Example ---> 37412345678");
         String phoneNumber = scanner.nextLine();
+        if (phoneNumber.isEmpty() || phoneNumber.length() < 11) {
+            System.out.println("Invalid input");
+            return;
+        }
         System.out.println("Please input doctor email");
         String email = scanner.nextLine();
+        if (email.isEmpty()) {
+            System.out.println("Invalid input");
+            return;
+        }
         Doctor doctor = new Doctor(id, name, surname, phoneNumber, email, profession);
         doctorStorage.addDoc(doctor);
     }
@@ -105,12 +132,25 @@ public class MedicalDemo implements Commands {
     public static void addPatient(Doctor doctor) {
         System.out.println("Please input name");
         String name = scanner.nextLine();
+        if (name.isEmpty() || name.length() <= 2) {
+            System.out.println("Invalid input");
+            return;
+        }
         System.out.println("Please input surname");
         String surname = scanner.nextLine();
-        System.out.println("Please input id");
+        if (surname.isEmpty() || surname.length() <= 2) {
+            System.out.println("Invalid input");
+        }
+        System.out.println("Please input id. Example ---> AX12345678");
         String id = scanner.nextLine();
-        System.out.println("Please input phone number");
+        if (id.isEmpty() || id.length() <= 10) {
+            System.out.println("Invalid input");
+        }
+        System.out.println("Please input phone number. Example ---> 37412345678");
         String phoneNumber = scanner.nextLine();
+        if (phoneNumber.isEmpty() || phoneNumber.length() <= 10) {
+            System.out.println("Invalid input");
+        }
         System.out.println("Please input registration date (yyyy-MM-dd)");
         String registrationDateStr = scanner.nextLine();
 
