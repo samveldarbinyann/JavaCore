@@ -1,5 +1,7 @@
 package homeworks.medicalCenter.persons;
 
+import homeworks.medicalCenter.storage.DoctorStorage;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
@@ -48,7 +50,7 @@ public class Patient extends Person implements Serializable {
 
     @Override
     public String toString() {
-        return name + " " + surname + " | ID: " + id + " | Doctor: " + doctor + " | Registration date: " + registrationDate + " | Phone: " + phoneNumber;
+        return name + " " + surname + " | ID: " + id + " | Doctor: " + doctor.getName() + " | Registration date: " + registrationDate + " | Phone: " + phoneNumber;
     }
 }
 
