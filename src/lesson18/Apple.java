@@ -1,6 +1,4 @@
-package lesson19;
-
-import java.util.Arrays;
+package lesson18;
 
 public enum Apple {
     Jonathan(10), GoldenDel(20), RedDel(9), Winesap(30), Cortland(14);
