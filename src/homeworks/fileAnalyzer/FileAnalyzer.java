@@ -3,10 +3,7 @@ package homeworks.fileAnalyzer;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class FileAnalyzer {
 
@@ -48,6 +45,16 @@ public class FileAnalyzer {
 
     public Map<String, Integer> topFrequentWords(String path, int n) throws IOException {
         // Читаем файл, находим топ-N часто встречающихся слов
+        String text = Files.readString(Paths.get(path));
+        String [] words = text.split("\\s+");
+//        Map<String, Integer> map = new HashMap<>();
+        LinkedHashMap<String, Integer> map = new LinkedHashMap<>();
+        for (String word : words) {
+            if(!word.isEmpty()) {
+                map.put(word, map.getOrDefault(word, 0) + 1);
+            }
+        }
+
         return null;
     }
 
